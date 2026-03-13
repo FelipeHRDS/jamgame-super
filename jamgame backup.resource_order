@@ -6,6 +6,7 @@
   "ResourceOrderSettings":[
     {"name":"obj_bau","order":11,"path":"objects/obj_bau/obj_bau.yy",},
     {"name":"obj_boladefeno","order":5,"path":"objects/obj_boladefeno/obj_boladefeno.yy",},
+    {"name":"obj_fumaca","order":12,"path":"objects/obj_fumaca/obj_fumaca.yy",},
     {"name":"obj_gato","order":1,"path":"objects/obj_gato/obj_gato.yy",},
     {"name":"obj_grabador","order":7,"path":"objects/obj_grabador/obj_grabador.yy",},
     {"name":"obj_parede","order":2,"path":"objects/obj_parede/obj_parede.yy",},
@@ -18,6 +19,7 @@
     {"name":"Room3","order":12,"path":"rooms/Room3/Room3.yy",},
     {"name":"sprite_bau","order":13,"path":"sprites/sprite_bau/sprite_bau.yy",},
     {"name":"sprite_boladefeno","order":4,"path":"sprites/sprite_boladefeno/sprite_boladefeno.yy",},
+    {"name":"sprite_fumaca","order":14,"path":"sprites/sprite_fumaca/sprite_fumaca.yy",},
     {"name":"sprite_gato_correndo","order":7,"path":"sprites/sprite_gato_correndo/sprite_gato_correndo.yy",},
     {"name":"sprite_gato_hook","order":9,"path":"sprites/sprite_gato_hook/sprite_gato_hook.yy",},
     {"name":"sprite_gato_parado","order":8,"path":"sprites/sprite_gato_parado/sprite_gato_parado.yy",},
