@@ -26,5 +26,6 @@
     {"name":"sprite_tatu","order":10,"path":"sprites/sprite_tatu/sprite_tatu.yy",},
     {"name":"sprite_terra_bamba","order":6,"path":"sprites/sprite_terra_bamba/sprite_terra_bamba.yy",},
     {"name":"sprite_urubu","order":3,"path":"sprites/sprite_urubu/sprite_urubu.yy",},
+    {"name":"Sprite16","order":13,"path":"sprites/Sprite16/Sprite16.yy",},
   ],
 }

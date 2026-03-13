@@ -53,6 +53,7 @@
     {"id":{"name":"sprite_tatu","path":"sprites/sprite_tatu/sprite_tatu.yy",},},
     {"id":{"name":"sprite_terra_bamba","path":"sprites/sprite_terra_bamba/sprite_terra_bamba.yy",},},
     {"id":{"name":"sprite_urubu","path":"sprites/sprite_urubu/sprite_urubu.yy",},},
+    {"id":{"name":"Sprite16","path":"sprites/Sprite16/Sprite16.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
