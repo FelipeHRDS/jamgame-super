@@ -1,0 +1,1 @@
+instance_destroy(); // Se destrói assim que a animação acabar, para não pesar o PC!

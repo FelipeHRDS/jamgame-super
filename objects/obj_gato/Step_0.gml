@@ -22,18 +22,48 @@ else
             var forca_escorregamento = dsin(chao_bambo.image_angle) * 8; 
             hspd = (move * spd) - forca_escorregamento;
         }
-        else
+        else // <--- É ESTE AQUI! O CHÃO NORMAL (FORA DA GANGORRA)
         {
-            hspd = move * spd; 
+            // 1. Agilidade padrão (começar a andar e parar)
+            var agilidade = 0.2; 
+            
+			// 2. O TRUQUE: DERRAPADA
+            if (move != 0) and (sign(move) != sign(hspd)) and (abs(hspd) > 0.5)
+            {
+                agilidade = 0.03; 
+                
+                // GERA A FUMAÇA!
+                // Usamos um "sorteio" (random) para não criar 60 fumaças por segundo.
+                // Isso cria uma chance de 30% de soltar uma fumacinha a cada frame da derrapada.
+                if (random(100) < 30)
+                {
+                    // Cria a fumaça exatamente no X do pé do gato (ajuste o y + 10 se precisar descer mais)
+                    var fumaca = instance_create_depth(x, y + 11, depth + 1, obj_fumaca);
+                    
+                    // Faz a fumaça virar para o lado oposto que o gato está indo, para dar o efeito de "arraste"
+                    fumaca.image_xscale = sign(hspd); 
+                }
+            }
+            
+            // 3. Aplica o movimento usando a agilidade dinâmica
+            hspd = lerp(hspd, move * spd, agilidade); 
         }
     }
     else
     {
+        // NO AR
         hspd = lerp(hspd, move * spd, 0.05);
     }
     
-    // A GRAVIDADE
-    vspd = vspd + grv;
+    // A GRAVIDADE (Com "Hang Time" para flutuar no topo do pulo)
+    var gravidade_atual = grv;
+    
+    if (abs(vspd) < 1.5) 
+    {
+        gravidade_atual = grv * 0.5; 
+    }
+    
+    vspd = vspd + gravidade_atual;
 }
 
 // ==========================================
@@ -97,11 +127,20 @@ if (key_jump)
             if (key_right)
             {
                 vspd = -7.6; 
+				instance_create_depth(x, y + 8, depth + 1, obj_fumaca);
                 hspd = spd;  
                 tempo_desgrudar = 0; // Zera a cola para liberar o pulo!
             }
         }
     }
+}
+
+// CONTROLE DE ALTURA DO PULO
+// Se o jogador soltar a tecla de pulo (vk_space) ENQUANTO ainda estiver subindo (vspd negativo)
+if (keyboard_check_released(vk_space) and vspd < 0)
+{
+    // Corta a velocidade do pulo pela metade, fazendo ele cair mais rápido
+    vspd = vspd * 0.5; 
 }
 
 // ==========================================
@@ -161,15 +200,17 @@ if (no_chao_antes and !place_meeting(x, y + 1, obj_parede) and vspd >= 0)
 // ==========================================
 // 5. SISTEMA DE ANIMAÇÃO
 // ==========================================
-if (hspd != 0) image_xscale = sign(hspd); // Vira para o lado certo
 
 if (active == true)
 {
+    // 1. PRIORIDADE MÁXIMA: Voando no gancho
     sprite_index = sprite_gato_hook; 
+    if (hspd != 0) image_xscale = sign(hspd); // No gancho, vira pro lado do puxão
 }
 else if (place_meeting(x, y + 1, obj_parede)) 
 {
-    if (hspd != 0) 
+    // 2. NO CHÃO
+    if (abs(hspd) > 0.1) 
     {
         sprite_index = sprite_gato_correndo;
     }
@@ -177,11 +218,25 @@ else if (place_meeting(x, y + 1, obj_parede))
     {
         sprite_index = sprite_gato_parado; 
     }
+    
+    // O SEGREDO DO MOONWALK PERFEITO:
+    // O rosto vira na mesma hora que você aperta o botão, 
+    // enquanto o corpo continua escorregando de costas!
+    if (move != 0)
+    {
+        image_xscale = sign(move); 
+    }
 }
 else
 {
-    // No ar (se tiver um sprite de pulo no futuro, é só colocar aqui)
-    sprite_index = sprite_gato_pulando;
+    // 3. NO AR
+    sprite_index = sprite_gato_parado; // (Ou sprite_gato_pulando)
+    
+    // No ar, ele também olha pro lado que você está tentando ir
+    if (move != 0) 
+    {
+        image_xscale = sign(move); 
+    }
 }
 
 // ==========================================
