@@ -230,7 +230,7 @@ else if (place_meeting(x, y + 1, obj_parede))
 else
 {
     // 3. NO AR
-    sprite_index = sprite_gato_parado; // (Ou sprite_gato_pulando)
+    sprite_index = sprite_gato_pulando; // (Ou sprite_gato_pulando)
     
     // No ar, ele também olha pro lado que você está tentando ir
     if (move != 0) 
