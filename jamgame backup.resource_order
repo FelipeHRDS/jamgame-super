@@ -15,6 +15,8 @@
     {"name":"obj_terra_bamba","order":8,"path":"objects/obj_terra_bamba/obj_terra_bamba.yy",},
     {"name":"obj_terra_caindo","order":9,"path":"objects/obj_terra_caindo/obj_terra_caindo.yy",},
     {"name":"obj_urubu","order":4,"path":"objects/obj_urubu/obj_urubu.yy",},
+    {"name":"Room3","order":12,"path":"rooms/Room3/Room3.yy",},
+    {"name":"sprite_bau","order":13,"path":"sprites/sprite_bau/sprite_bau.yy",},
     {"name":"sprite_boladefeno","order":4,"path":"sprites/sprite_boladefeno/sprite_boladefeno.yy",},
     {"name":"sprite_gato_correndo","order":7,"path":"sprites/sprite_gato_correndo/sprite_gato_correndo.yy",},
     {"name":"sprite_gato_hook","order":9,"path":"sprites/sprite_gato_hook/sprite_gato_hook.yy",},
@@ -27,6 +29,5 @@
     {"name":"sprite_tatu","order":10,"path":"sprites/sprite_tatu/sprite_tatu.yy",},
     {"name":"sprite_terra_bamba","order":6,"path":"sprites/sprite_terra_bamba/sprite_terra_bamba.yy",},
     {"name":"sprite_urubu","order":3,"path":"sprites/sprite_urubu/sprite_urubu.yy",},
-    {"name":"Sprite16","order":13,"path":"sprites/Sprite16/Sprite16.yy",},
   ],
 }
