@@ -23,6 +23,7 @@
   "name":"jamgame backup",
   "resources":[
     {"id":{"name":"obj_arremessavel","path":"objects/obj_arremessavel/obj_arremessavel.yy",},},
+    {"id":{"name":"obj_bau","path":"objects/obj_bau/obj_bau.yy",},},
     {"id":{"name":"obj_boladefeno","path":"objects/obj_boladefeno/obj_boladefeno.yy",},},
     {"id":{"name":"obj_cacto","path":"objects/obj_cacto/obj_cacto.yy",},},
     {"id":{"name":"obj_cobra_direita","path":"objects/obj_cobra_direita/obj_cobra_direita.yy",},},
