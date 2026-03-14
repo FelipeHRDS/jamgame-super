@@ -4,7 +4,7 @@ vspd = vspd + grv;
 // 2. O RADAR (Detecta o gato)
 var distancia = distance_to_object(obj_gato);
 
-if (distancia < 150) // Raio de visão da topeira (Ajuste se necessário)
+if (distancia < 200) // Raio de visão da topeira (Ajuste se necessário)
 {
     estado = "atacando";
 }
