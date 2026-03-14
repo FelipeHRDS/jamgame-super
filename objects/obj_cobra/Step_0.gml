@@ -1,26 +1,44 @@
 // ==========================================
-// 1. GRAVIDADE E RADAR DE VISÃO
+// 1. GRAVIDADE E RADAR DE VISÃO (Com Memória!)
 // ==========================================
 vspd = vspd + grv;
 
-// Descobre a distância (círculo) e também a diferença de altura!
+// Descobre a distância (círculo) e a diferença de altura
 var distancia = distance_to_object(obj_gato);
 var diferenca_altura = abs(obj_gato.y - y);
 
-// Só ataca se estiver perto (180 pixels) E no mesmo andar (diferença de altura menor que 40 pixels)
-if (distancia < raio_visao) and (diferenca_altura < 40)
+// A cobra está te vendo NESTE EXATO FRAME? (Perto E no mesmo chão)
+var vendo_gato = (distancia < raio_visao) and (diferenca_altura < 15);
+
+if (vendo_gato == true)
 {
-    estado = "perseguindo";
-}
-else
-{
-    estado = "patrulhando";
+    // Ela te viu! Renova a memória dela para 60 frames (1 segundo de perseguição cega)
+    // Se o seu pulo demorar mais de 1 segundo para cair no chão, aumente esse número!
+    tempo_memoria = 60; 
 }
 
 // ==========================================
-// 2. RADAR DE ABISMO E PAREDE (Versão Ponta do Pé)
+// O CÉREBRO DA MEMÓRIA
 // ==========================================
-// Pega o ponto extremo do sprite (direita ou esquerda dependendo de qual lado ela olha)
+// Se ela acabou de te ver OU ainda se lembra de você...
+if (tempo_memoria > 0)
+{
+    estado = "perseguindo";
+    spd_atual = spd_perseguicao;
+    
+    // A memória vai acabando enquanto você está no ar pulando...
+    tempo_memoria -= 1; 
+}
+else
+{
+    // Se o tempo acabou e você sumiu de verdade, ela desiste.
+    estado = "patrulhando";
+    spd_atual = spd_patrulha;
+}
+
+// ==========================================
+// 2. RADAR DE ABISMO E PAREDE (Lê apenas 1 vez!)
+// ==========================================
 var ponta_do_pe = x;
 if (dir == 1) 
 {
@@ -31,11 +49,8 @@ else
     ponta_do_pe = bbox_left - spd_atual;
 }
 
-// Em vez de calcular o corpo todo, a função position_meeting checa apenas 1 único pixel!
-// Ela lança um "laser" na ponta do pé da cobra, 1 pixel para baixo (bbox_bottom + 1).
+// As variáveis são criadas com "var" UMA ÚNICA VEZ aqui
 var chao_na_frente = position_meeting(ponta_do_pe, bbox_bottom + 1, obj_parede);
-
-// A parede continua calculando o corpo todo para ela não bater o focinho
 var parede_na_frente = place_meeting(x + (spd_atual * dir), y, obj_parede);
 
 // ==========================================
@@ -43,7 +58,6 @@ var parede_na_frente = place_meeting(x + (spd_atual * dir), y, obj_parede);
 // ==========================================
 if (estado == "patrulhando")
 {
-    spd_atual = spd_patrulha;
     hspd = spd_atual * dir;
     
     // Se bater na parede ou o chão acabar, dá meia-volta
@@ -54,19 +68,27 @@ if (estado == "patrulhando")
 }
 else if (estado == "perseguindo")
 {
-    spd_atual = spd_perseguicao;
+    // ZONA MORTA: Impede a cobra de vibrar e bugar quando o jogador está em cima dela
+    var distancia_x = abs(obj_gato.x - x);
     
-    // Olha furiosa para a direção exata onde o gato está!
-    var direcao_gato = sign(obj_gato.x - x);
-    if (direcao_gato != 0) 
+    // Ela só vira e anda se o jogador estiver mais longe que 1 passo dela
+    if (distancia_x > spd_atual)
     {
-        dir = direcao_gato;
+        var direcao_gato = sign(obj_gato.x - x);
+        if (direcao_gato != 0) 
+        {
+            dir = direcao_gato;
+        }
+        hspd = spd_atual * dir;
+    }
+    else
+    {
+        // Se já está alinhada perfeitamente com o gato, ela freia e espera!
+        hspd = 0; 
     }
     
-    // Acelera na direção do gato
-    hspd = spd_atual * dir;
-    
-    // A Cobra não é boba: se ela chegar na beirada ou bater na parede tentando te pegar, ela "freia" e fica presa rosnando.
+    // A Cobra não é boba: se ela chegar na beirada ela "freia".
+    // Como chao_na_frente já foi calculado lá em cima, não precisamos do "var" de novo!
     if (parede_na_frente or !chao_na_frente)
     {
         hspd = 0; 
@@ -92,5 +114,5 @@ if (place_meeting(x, y + vspd, obj_parede))
 }
 y += vspd;
 
-// Vira o rostinho (usando dir para não bugar o sprite!)
+// Vira o rostinho
 if (dir != 0) image_xscale = -dir;

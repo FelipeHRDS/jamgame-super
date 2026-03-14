@@ -9,3 +9,5 @@ vspd = 0;
 grv = 0.3;
 
 raio_visao = 180;      // Distância que ela consegue enxergar o gato
+
+tempo_memoria = 0; // O tempo que ela continua te caçando mesmo se você pular
