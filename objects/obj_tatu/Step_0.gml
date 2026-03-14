@@ -11,6 +11,8 @@ var spd_atual = 0;
 if (estado == "andando")
 {
     sprite_index = sprite_tatu;
+	
+	
     spd_atual = spd_andando;
     
     // Verifica a distância do gato para entrar no modo bolinha
@@ -21,12 +23,23 @@ if (estado == "andando")
         // Se o gato chegar a menos de 100 pixels de distância...
         if (distancia < 100) 
         {
-            estado = "rolando"; // Fica agressivo!
+            estado = "transformando"; // Fica agressivo!
         }
     }
 }
+
+else if (estado == "transformando")
+{
+    // Toca a animação nova
+    sprite_index = sprite_tatu_transformando;
+    
+    // Zera a velocidade para ele parar no lugar enquanto se transforma
+    spd_atual = 0; 
+}
+
 else if (estado == "rolando")
 {
+	
     sprite_index = sprite_tatu_rolando;
     spd_atual = spd_rolando;
     
@@ -66,7 +79,7 @@ else if (place_meeting(x, y + 1, obj_parede)) // Só verifica buraco se estiver 
 }
 
 // Vira o rostinho do Tatu para o lado certo
-if (hspd != 0) image_xscale = dir;
+if (hspd != 0) image_xscale = -	dir;
 
 
 // ==========================================

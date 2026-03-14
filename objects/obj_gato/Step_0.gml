@@ -252,10 +252,13 @@ if (mouse_check_button_pressed(mb_left))
     if (position_meeting(mouse_x, mouse_y, obj_grabador))
     {
         var grabador = instance_position(mouse_x, mouse_y, obj_grabador);
-        mx = grabador.x;
-        my = grabador.y;
-        active = true;
-        hook_timer = 8;
+        if (!collision_line(x, y, grabador.x, grabador.y, obj_parede, false, true))
+        {
+            mx = grabador.x;
+            my = grabador.y;
+            active = true;
+            hook_timer = 8;
+        }
     }
 }
 
