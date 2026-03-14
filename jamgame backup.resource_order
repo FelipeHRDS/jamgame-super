@@ -45,6 +45,7 @@
     {"name":"sprite_tatu_transformando","order":16,"path":"sprites/sprite_tatu_transformando/sprite_tatu_transformando.yy",},
     {"name":"sprite_tatu","order":10,"path":"sprites/sprite_tatu/sprite_tatu.yy",},
     {"name":"sprite_terra_bamba","order":6,"path":"sprites/sprite_terra_bamba/sprite_terra_bamba.yy",},
+    {"name":"sprite_topeira_atacando","order":23,"path":"sprites/sprite_topeira_atacando/sprite_topeira_atacando.yy",},
     {"name":"sprite_topeira","order":17,"path":"sprites/sprite_topeira/sprite_topeira.yy",},
     {"name":"sprite_urubu","order":3,"path":"sprites/sprite_urubu/sprite_urubu.yy",},
   ],

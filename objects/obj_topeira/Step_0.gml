@@ -1,74 +1,87 @@
-// 1. GRAVIDADE BÁSICA
+// ==========================================
+// 1. GRAVIDADE E CRONÔMETRO
+// ==========================================
 vspd = vspd + grv;
 
-// 2. O RADAR (Detecta o gato)
-var distancia = distance_to_object(obj_gato);
-
-if (distancia < 200) // Raio de visão da topeira (Ajuste se necessário)
+if (cooldown_tiro > 0) 
 {
-    estado = "atacando";
-}
-else
-{
-    estado = "patrulhando";
+    cooldown_tiro -= 1;
 }
 
-// 3. A MÁQUINA DE ESTADOS
+// ==========================================
+// 2. A MÁQUINA DE ESTADOS BLINDADA
+// ==========================================
 if (estado == "patrulhando")
 {
-    hspd = spd * dir;
+    // A toupeira só tenta atacar SE estiver patrulhando
+    var distancia = distance_to_object(obj_gato);
     
-    // A MÁGICA: abs() garante que a largura seja sempre positiva!
-    var largura_segura = abs(sprite_width) / 2;
-    
-    // Agora ela sempre vai olhar um pouquinho para frente, na direção correta
-    var chao_na_frente = place_meeting(x + (largura_segura * dir), y + 1, obj_parede);
-    var parede_na_frente = place_meeting(x + hspd, y, obj_parede);
-    
-    // Se bater na parede ou o chão acabar...
-    if (parede_na_frente or !chao_na_frente)
+    // Gato perto E arma recarregada?
+    if (distancia < 100 and cooldown_tiro <= 0)
     {
-        dir = dir * -1; // Vira para o outro lado imediatamente
+        estado = "atacando";
+        hspd = 0; // Freia na mesma hora!
+        
+        sprite_index = sprite_topeira_atacando; // Coloca a fantasia de ataque
+        image_index = 0; // Começa do frame zero
+        atirou_neste_loop = false; // Prepara o tiro
+    }
+    else
+    {
+        // Se não for atacar, anda normalmente!
+        // IMPORTANTE: Troque o nome abaixo para o sprite real dela andando!
+        sprite_index = sprite_topeira; 
+        
+        hspd = spd * dir;
+        
+        var largura_segura = abs(sprite_width) / 2;
+        var chao_na_frente = place_meeting(x + (largura_segura * dir), y + 1, obj_parede);
+        var parede_na_frente = place_meeting(x + hspd, y, obj_parede);
+        
+        if (parede_na_frente or !chao_na_frente)
+        {
+            dir = dir * -1; 
+        }
     }
 }
-
 else if (estado == "atacando")
 {
-    hspd = 0; // Para de andar
+    hspd = 0; // Garante que ela não vai dar nenhum passo enquanto ataca
     
-    // Olha fixa para a direção do gato para o sprite virar certo
-    dir = sign(obj_gato.x - x);
-    if (dir == 0) dir = 1; 
+    // Olha pro gato
+    var direcao_gato = sign(obj_gato.x - x);
+    if (direcao_gato != 0) dir = direcao_gato; 
     
-    // SISTEMA DE TIRO
-    cooldown_tiro -= 1;
-    
-    if (cooldown_tiro <= 0)
+    // --------------------------------------------------
+    // O TIRO SINCRONIZADO
+    // --------------------------------------------------
+    var frame_exato_do_tiro = 7; // Ajuste para o seu frame correto
+
+    if (floor(image_index) == frame_exato_do_tiro) and (atirou_neste_loop == false)
     {
-        // Cria a picareta
         var picareta = instance_create_depth(x, y - 10, depth + 1, obj_picareta);
+        picareta.hspd = (obj_gato.x - x) / 60; 
+        atirou_neste_loop = true; 
+    }
+    
+    // --------------------------------------------------
+    // FIM DO ATAQUE (Volta ao normal)
+    // --------------------------------------------------
+    // Quando a animação chega no último quadro...
+    if (image_index >= image_number - 1)
+    {
+        estado = "patrulhando"; 
+        cooldown_tiro = 120; // 2 segundos de espera
         
-        // ==========================================
-        // A MÁGICA DA MIRA PERFEITA (TRACKING)
-        // ==========================================
-        // Descobre a distância exata entre a topeira e o gato
-        var distancia_x = obj_gato.x - x;
-        
-        // Divide a distância pelo tempo de voo (60 frames). 
-        // A picareta agora se ajusta para cair perfeitamente onde o gato está!
-        picareta.hspd = distancia_x / 60; 
-        
-        // ==========================================
-        // DIMINUINDO O NÚMERO DE PICARETAS
-        // ==========================================
-        // Antes era 60 (1 tiro por segundo). 
-        // Agora é 120 (1 tiro a cada 2 segundos). 
-        // Se ainda achar muito rápido, mude para 150 ou 180!
-        cooldown_tiro = 120; 
+        // MUITO IMPORTANTE: Tira a fantasia de ataque e devolve a de andar!
+        // Troque pelo seu sprite de caminhada:
+        sprite_index = sprite_topeira; 
     }
 }
 
-// 4. COLISÕES BÁSICAS (Para a topeira não atravessar o chão)
+// ==========================================
+// 3. COLISÕES BÁSICAS E ANIMAÇÃO
+// ==========================================
 if (place_meeting(x + hspd, y, obj_parede))
 {
     while (!place_meeting(x + sign(hspd), y, obj_parede)) { x += sign(hspd); }
@@ -83,5 +96,5 @@ if (place_meeting(x, y + vspd, obj_parede))
 }
 y += vspd;
 
-// 5. ANIMAÇÃO (Vira o sprite para o lado certo)
-image_xscale = dir;
+// Vira a imagem para o lado certo
+image_xscale = -dir;

@@ -71,6 +71,7 @@
     {"id":{"name":"sprite_tatu_transformando","path":"sprites/sprite_tatu_transformando/sprite_tatu_transformando.yy",},},
     {"id":{"name":"sprite_tatu","path":"sprites/sprite_tatu/sprite_tatu.yy",},},
     {"id":{"name":"sprite_terra_bamba","path":"sprites/sprite_terra_bamba/sprite_terra_bamba.yy",},},
+    {"id":{"name":"sprite_topeira_atacando","path":"sprites/sprite_topeira_atacando/sprite_topeira_atacando.yy",},},
     {"id":{"name":"sprite_topeira","path":"sprites/sprite_topeira/sprite_topeira.yy",},},
     {"id":{"name":"sprite_urubu","path":"sprites/sprite_urubu/sprite_urubu.yy",},},
   ],
