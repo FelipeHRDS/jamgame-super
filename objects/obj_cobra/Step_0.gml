@@ -1,5 +1,5 @@
 // ==========================================
-// 1. GRAVIDADE E RADAR DE VISÃO (Com Memória!)
+// 1. GRAVIDADE E RADAR DE VISÃO (Campo de Visão e Memória!)
 // ==========================================
 vspd = vspd + grv;
 
@@ -7,13 +7,19 @@ vspd = vspd + grv;
 var distancia = distance_to_object(obj_gato);
 var diferenca_altura = abs(obj_gato.y - y);
 
-// A cobra está te vendo NESTE EXATO FRAME? (Perto E no mesmo chão)
-var vendo_gato = (distancia < raio_visao) and (diferenca_altura < 15);
+// MÁGICA DO CAMPO DE VISÃO: Descobre para qual lado o gato está em relação à cobra
+var direcao_do_gato = sign(obj_gato.x - x);
+
+// Ela só está olhando pro gato se a direção dela (dir) for igual à direção que o gato está.
+// (O "== 0" serve para garantir que ela te veja se você estiver exatamente no mesmo pixel que ela)
+var olhando_pro_gato = (direcao_do_gato == dir) or (direcao_do_gato == 0);
+
+// A cobra está te vendo NESTE EXATO FRAME? (Perto, mesmo chão E na frente dela!)
+var vendo_gato = (distancia < raio_visao) and (diferenca_altura < 15) and olhando_pro_gato;
 
 if (vendo_gato == true)
 {
-    // Ela te viu! Renova a memória dela para 60 frames (1 segundo de perseguição cega)
-    // Se o seu pulo demorar mais de 1 segundo para cair no chão, aumente esse número!
+    // Ela te viu! Renova a memória dela para 60 frames (1 segundo de perseguição)
     tempo_memoria = 60; 
 }
 
