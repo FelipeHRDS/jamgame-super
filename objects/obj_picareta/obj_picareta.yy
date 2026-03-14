@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_cobra_esquerda",
+  "%Name":"obj_picareta",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_cobra_esquerda",
+  "name":"obj_picareta",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprite_cobra",
-    "path":"sprites/sprite_cobra/sprite_cobra.yy",
+    "name":"sprite_picareta",
+    "path":"sprites/sprite_picareta/sprite_picareta.yy",
   },
   "spriteMaskId":null,
   "visible":true,

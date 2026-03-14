@@ -1,3 +1,25 @@
+// ==========================================
+// 0. ESTADO DE MORTE
+// ==========================================
+if (morto == true)
+{
+	visible = false;
+	
+    // Apenas diminui o cronômetro
+    tempo_morte -= 1;
+    
+    // Quando o tempo acabar de verdade, reinicia a fase
+    if (tempo_morte <= 0)
+    {
+        room_restart();
+    }
+    
+    // A MÁGICA: O comando "exit" diz para o GameMaker parar de ler o evento Step agora mesmo.
+    // Isso congela o gato no lugar e impede que o jogador ande ou pule enquanto morre!
+    exit; 
+}
+
+
 // Inicio das variaveis dos controles
 key_right = keyboard_check(ord("D"));
 key_left = keyboard_check(ord("A"));
