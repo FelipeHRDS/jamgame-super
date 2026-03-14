@@ -1,3 +1,25 @@
+// ==========================================
+// 0. ESTADO DE MORTE
+// ==========================================
+if (morto == true)
+{
+	visible = false;
+	
+    // Apenas diminui o cronômetro
+    tempo_morte -= 1;
+    
+    // Quando o tempo acabar de verdade, reinicia a fase
+    if (tempo_morte <= 0)
+    {
+        room_restart();
+    }
+    
+    // A MÁGICA: O comando "exit" diz para o GameMaker parar de ler o evento Step agora mesmo.
+    // Isso congela o gato no lugar e impede que o jogador ande ou pule enquanto morre!
+    exit; 
+}
+
+
 // Inicio das variaveis dos controles
 key_right = keyboard_check(ord("D"));
 key_left = keyboard_check(ord("A"));
@@ -252,10 +274,13 @@ if (mouse_check_button_pressed(mb_left))
     if (position_meeting(mouse_x, mouse_y, obj_grabador))
     {
         var grabador = instance_position(mouse_x, mouse_y, obj_grabador);
-        mx = grabador.x;
-        my = grabador.y;
-        active = true;
-        hook_timer = 8;
+        if (!collision_line(x, y, grabador.x, grabador.y, obj_parede, false, true))
+        {
+            mx = grabador.x;
+            my = grabador.y;
+            active = true;
+            hook_timer = 8;
+        }
     }
 }
 

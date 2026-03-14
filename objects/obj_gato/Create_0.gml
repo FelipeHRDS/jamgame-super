@@ -11,3 +11,6 @@ active = false;
 hook_timer = 0;
 
 tempo_desgrudar = 20; // Cronômetro da "grudadinha"
+
+morto = false;      // O gato começa vivo, obviamente!
+tempo_morte = 60;   // Vai esperar 1 segundo (60 frames) antes de reiniciar a tela

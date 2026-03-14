@@ -1,2 +1,2 @@
-// Mecânica de morrer caso encoste
-instance_destroy()
+instance_destroy();
+room_restart();
