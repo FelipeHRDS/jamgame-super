@@ -6,8 +6,8 @@
   "name":"obj_garrafa_alcool",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Decorativos",
+    "path":"folders/Decorativos.yy",
   },
   "parentObjectId":null,
   "persistent":false,

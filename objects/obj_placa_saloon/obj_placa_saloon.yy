@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_poster_miner",
+  "%Name":"obj_placa_saloon",
   "eventList":[],
   "managed":true,
-  "name":"obj_poster_miner",
+  "name":"obj_placa_saloon",
   "overriddenProperties":[],
   "parent":{
     "name":"Decorativos",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprite_poster_miner",
-    "path":"sprites/sprite_poster_miner/sprite_poster_miner.yy",
+    "name":"sprite_placa_saloon",
+    "path":"sprites/sprite_placa_saloon/sprite_placa_saloon.yy",
   },
   "spriteMaskId":null,
   "visible":true,

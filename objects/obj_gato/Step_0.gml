@@ -1,30 +1,41 @@
-
-// Se o gato estiver invisível (seja por estar morto ou dentro do carrinho)
+// Se o gato estiver invisível (dentro do carrinho da outra fase)
 if (visible == false)
 {
-    // Congela todas as ações do jogador e ignora o resto do código
+    // Congela todas as ações e ignora o resto do código
     exit; 
 }
 
-
 // ==========================================
-// 0. ESTADO DE MORTE
+// 0. ESTADO DE MORTE (Estilo Mario!)
 // ==========================================
 if (morto == true)
 {
-	visible = false;
-	
-    // Apenas diminui o cronômetro
-    tempo_morte -= 1;
+    // 1. O PULO INICIAL: Se a sprite ainda não é a de morto, significa 
+    // que este é o EXATO momento que ele morreu.
+    if (sprite_index != sprite_gato_morto)
+    {
+        sprite_index = sprite_gato_morto; // Veste a fantasia de morto
+        vspd = -8; // Dá o "pulinho" trágico para cima (ajuste a força se quiser)
+        hspd = 0;  // Para de ir para frente/trás
+        
+        // Se quiser tocar um som de "Game Over" na hora que morre, coloque aqui!
+        // audio_play_sound(sound_morte, 1, false);
+    }
     
-    // Quando o tempo acabar de verdade, reinicia a fase
-    if (tempo_morte <= 0)
+    // 2. A FÍSICA DA QUEDA LIVRE (Ignorando colisões)
+    vspd += grv; // A gravidade continua puxando ele para baixo
+    y += vspd;   // Movemos o Y diretamente! (Isso faz ele atravessar o chão)
+    
+    // 3. O RESTART
+    // Em vez de usar apenas o cronômetro, podemos reiniciar a fase quando ele cair para fora da tela
+    if (y > room_height + 100) or (tempo_morte <= 0)
     {
         room_restart();
     }
     
-    // A MÁGICA: O comando "exit" diz para o GameMaker parar de ler o evento Step agora mesmo.
-    // Isso congela o gato no lugar e impede que o jogador ande ou pule enquanto morre!
+    // 4. A MÁGICA DO CONGELAMENTO MANTIDA
+    // O "exit" impede que o código continue lendo as Seções 1, 2, 3, etc.
+    // Assim o jogador não pode pular nem atirar o gancho enquanto está caindo morto!
     exit; 
 }
 

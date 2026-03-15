@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_poster_miner",
+  "%Name":"obj_decoracaocranio_fase3",
   "eventList":[],
   "managed":true,
-  "name":"obj_poster_miner",
+  "name":"obj_decoracaocranio_fase3",
   "overriddenProperties":[],
   "parent":{
     "name":"Decorativos",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprite_poster_miner",
-    "path":"sprites/sprite_poster_miner/sprite_poster_miner.yy",
+    "name":"sprite_decoracaocranio_fase3",
+    "path":"sprites/sprite_decoracaocranio_fase3/sprite_decoracaocranio_fase3.yy",
   },
   "spriteMaskId":null,
   "visible":true,

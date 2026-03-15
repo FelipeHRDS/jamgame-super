@@ -6,8 +6,8 @@
   "name":"obj_poster_cobra",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Decorativos",
+    "path":"folders/Decorativos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
