@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
   "%Name":"sprite_topeira",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":15,
-  "bbox_left":2,
-  "bbox_right":15,
+  "bbox_left":4,
+  "bbox_right":13,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
