@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":8,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Background_Desertos",
+    "path":"folders/Background_Desertos.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

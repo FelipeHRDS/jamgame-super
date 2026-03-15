@@ -1,3 +1,12 @@
+
+// Se o gato estiver invisível (seja por estar morto ou dentro do carrinho)
+if (visible == false)
+{
+    // Congela todas as ações do jogador e ignora o resto do código
+    exit; 
+}
+
+
 // ==========================================
 // 0. ESTADO DE MORTE
 // ==========================================

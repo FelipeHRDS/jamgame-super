@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_cacto",
+  "%Name":"obj_pedra_grande",
   "eventList":[],
   "managed":true,
-  "name":"obj_cacto",
+  "name":"obj_pedra_grande",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Decorativos",
+    "path":"folders/Decorativos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprite_cacto",
-    "path":"sprites/sprite_cacto/sprite_cacto.yy",
+    "name":"sprite_pedra_grande",
+    "path":"sprites/sprite_pedra_grande/sprite_pedra_grande.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -11,4 +11,4 @@ dir = 1;              // Direção (1 = Direita, -1 = Esquerda)
 // Estado inicial
 estado = "andando";
 
-//teste 
+depth = -100;
