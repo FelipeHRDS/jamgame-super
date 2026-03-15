@@ -140,6 +140,7 @@ if (key_jump)
     if (no_chao) 
     {
         vspd -= 7.6;
+        audio_play_sound(sound_pulo, 1, false); // <--- TOCA O SOM AQUI!
     }
     // WALL JUMP (No Ar e encostado na Parede)
     else 
@@ -150,7 +151,8 @@ if (key_jump)
             {
                 vspd = -7.6; 
                 hspd = -spd; 
-                tempo_desgrudar = 0; // Zera a cola para liberar o pulo!
+                tempo_desgrudar = 0; 
+                audio_play_sound(sound_pulo, 1, false); // <--- TOCA O SOM AQUI!
             }
         }
         else if (parede_esquerda)
@@ -158,9 +160,10 @@ if (key_jump)
             if (key_right)
             {
                 vspd = -7.6; 
-				instance_create_depth(x, y + 8, depth + 1, obj_fumaca);
+                instance_create_depth(x, y + 8, depth + 1, obj_fumaca);
                 hspd = spd;  
-                tempo_desgrudar = 0; // Zera a cola para liberar o pulo!
+                tempo_desgrudar = 0; 
+                audio_play_sound(sound_pulo, 1, false); // <--- TOCA O SOM AQUI!
             }
         }
     }
@@ -289,6 +292,8 @@ if (mouse_check_button_pressed(mb_left))
             my = grabador.y;
             active = true;
             hook_timer = 8;
+			audio_play_sound(sound_corda, 1, false); // <--- TOCA O SOM DO GANCHO AQUI
+			
         }
     }
 }

@@ -67,6 +67,8 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"id":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
+    {"id":{"name":"sound_corda","path":"sounds/sound_corda/sound_corda.yy",},},
+    {"id":{"name":"sound_pulo","path":"sounds/sound_pulo/sound_pulo.yy",},},
     {"id":{"name":"sprite_arbusto","path":"sprites/sprite_arbusto/sprite_arbusto.yy",},},
     {"id":{"name":"sprite_arremessavel","path":"sprites/sprite_arremessavel/sprite_arremessavel.yy",},},
     {"id":{"name":"sprite_background_arvore","path":"sprites/sprite_background_arvore/sprite_background_arvore.yy",},},
@@ -123,8 +125,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
