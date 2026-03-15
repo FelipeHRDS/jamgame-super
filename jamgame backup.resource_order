@@ -1,8 +1,9 @@
 {
   "FolderOrderSettings":[
     {"name":"Background_Desertos","order":15,"path":"folders/Background_Desertos.yy",},
-    {"name":"Decorativos","order":14,"path":"folders/Decorativos.yy",},
     {"name":"Background_Mina","order":17,"path":"folders/Background_Mina.yy",},
+    {"name":"Decorativos","order":14,"path":"folders/Decorativos.yy",},
+    {"name":"Background_Terceiro","order":20,"path":"folders/Background_Terceiro.yy",},
     {"name":"Objetos","order":10,"path":"folders/Objetos.yy",},
     {"name":"Sprites","order":11,"path":"folders/Sprites.yy",},
     {"name":"Tilesets","order":13,"path":"folders/Tilesets.yy",},
@@ -47,6 +48,10 @@
     {"name":"Room3","order":16,"path":"rooms/Room3/Room3.yy",},
     {"name":"sound_corda","order":18,"path":"sounds/sound_corda/sound_corda.yy",},
     {"name":"sound_pulo","order":19,"path":"sounds/sound_pulo/sound_pulo.yy",},
+    {"name":"background_terceiro_2","order":1,"path":"sprites/background_terceiro_2/background_terceiro_2.yy",},
+    {"name":"background_terceiro_3","order":2,"path":"sprites/background_terceiro_3/background_terceiro_3.yy",},
+    {"name":"background_terceiro_4","order":3,"path":"sprites/background_terceiro_4/background_terceiro_4.yy",},
+    {"name":"background_terceiro_5","order":4,"path":"sprites/background_terceiro_5/background_terceiro_5.yy",},
     {"name":"sprite_arbusto","order":29,"path":"sprites/sprite_arbusto/sprite_arbusto.yy",},
     {"name":"sprite_arremessavel","order":1,"path":"sprites/sprite_arremessavel/sprite_arremessavel.yy",},
     {"name":"sprite_background_ceu","order":1,"path":"sprites/sprite_background_ceu/sprite_background_ceu.yy",},
