@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"welcome_to_dry_land1",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":79.56898,
+  "exportDir":"",
+  "name":"welcome_to_dry_land1",
+  "parent":{
+    "name":"Soundtrack",
+    "path":"folders/Soundtrack.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"welcome_to_dry_land1.mp3",
+  "volume":1.0,
+}

@@ -1,6 +1,6 @@
 draw_self();
 
-if (active)
+if ((active) and !morto)
 {
     // Escolhe a cor da linha (c_white, c_red, c_gray, c_black...)
     draw_set_color(c_maroon); 

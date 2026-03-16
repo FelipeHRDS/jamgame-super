@@ -5,3 +5,4 @@ if !instance_exists(obj_gato)
 {
 	room_restart();
 }
+

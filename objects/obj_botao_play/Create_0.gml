@@ -1,0 +1,1 @@
+audio_play_sound(welcome_to_dry_land1, 1, true);

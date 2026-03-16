@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Watch_out_for_the_vulture3",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":139.12816,
+  "exportDir":"",
+  "name":"Watch_out_for_the_vulture3",
+  "parent":{
+    "name":"Soundtrack",
+    "path":"folders/Soundtrack.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Watch_out_for_the_vulture3.mp3",
+  "volume":1.0,
+}

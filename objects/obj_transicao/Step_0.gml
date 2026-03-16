@@ -1,13 +1,15 @@
 // Se ainda não mudou de fase, a tela ESCURECE
 if (mudou_de_sala == false)
 {
-    alfa += 0.05; // Velocidade do escurecimento (aumente se quiser mais rápido)
+    alfa += 0.05; 
     
     // Quando a tela ficar 100% preta...
     if (alfa >= 1)
     {
-        room_goto_next();      // Pula para a próxima fase!
-        mudou_de_sala = true;  // Avisa que já mudou
+        audio_stop_all(); // <--- O JOGO INTEIRO FICA MUDO AQUI!
+        
+        room_goto_next();      
+        mudou_de_sala = true;  
     }
 }
 // Se já mudou de fase, a tela CLAREIA

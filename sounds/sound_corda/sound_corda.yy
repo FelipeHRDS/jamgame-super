@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"sound_corda.mp3",
-  "volume":0.8,
+  "volume":0.3,
 }

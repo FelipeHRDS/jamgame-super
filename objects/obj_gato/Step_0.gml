@@ -330,3 +330,19 @@ if (mouse_check_button_released(mb_left))
 {
     active = false;
 }
+
+// ==========================================
+// FIM DE FASE (Com Transição Suave)
+// ==========================================
+if (x > 2500)
+{
+	audio_stop_all(); // Calar a boca do jogo inteiro de uma vez só!
+    // Verifica se a transição JÁ FOI criada.
+    // O sinal de exclamação (!) significa "NÃO".
+    if (!instance_exists(obj_transicao))
+    {
+        // Cria o nosso "diretor" na tela para escurecer tudo!
+        // Ele vai cuidar do room_goto_next() sozinho quando a tela ficar 100% preta.
+        instance_create_depth(0, 0, -9999, obj_transicao); 
+    }
+}
