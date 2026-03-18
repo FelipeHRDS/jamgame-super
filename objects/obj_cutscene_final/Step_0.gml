@@ -33,7 +33,7 @@ else if (estado == "escurecendo")
         if (pagina_atual >= array_length(paginas))
         {
 			audio_stop_sound(Rocking_Chair6);
-            room_goto_next(); // Acabou a historinha, vai para o Jogo!
+            room_goto(Menu); // Acabou a historinha, vai para o Jogo!
         }
         else
         {
